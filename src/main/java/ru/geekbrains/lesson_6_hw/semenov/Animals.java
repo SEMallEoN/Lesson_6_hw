@@ -1,48 +1,45 @@
 package ru.geekbrains.lesson_6_hw.semenov;
 
+import java.util.Random;
+
 public class Animals {
     String AnimalView;
     int maxRun;
     int maxSwim;
-    int maxLeap;
-    int limitRun;
-    int limitSwim;
-    int limitLeap;
+    double maxLeap;
 
-    public Animals(String AnimalView, int maxRun, int maxSwim, int maxLeap, int limitRun, int limitSwim, int limitLeap) {
-        this.AnimalView = AnimalView;
-        this.maxRun = maxRun;
-        this.maxSwim = maxSwim;
-        this.maxLeap = maxLeap;
-        this.limitRun = limitRun;
-        this.limitSwim = limitSwim;
-        this.limitLeap = limitLeap;
+    public static Random random = new Random();
+
+    public Animals() {
     }
 
     public void Run(int distance) {
-        if (distance <= this.limitRun) {
-            System.out.println(this.AnimalView + " ");
+        if (distance <= this.maxRun) {
+            System.out.println(this.AnimalView + " пробежал " + distance + " метр(ов)");
         } else {
-            System.out.println("");
+            System.out.println(this.AnimalView + " не может пробежать " + distance + " метр(ов)");
         }
 
     }
 
     public void Swim(int distance) {
-        if (distance <= this.limitSwim) {
-            System.out.println("");
+        if (distance <= this.maxSwim) {
+            System.out.println(this.AnimalView + " проплыл " + distance + " метр(ов)");
+        } else if (this.maxSwim == 0) {
+            System.out.println(this.AnimalView + " не умеет плавать");
         } else {
-            System.out.println("");
+            System.out.println(this.AnimalView + " не может проплыть " + distance + " метр(ов)");
         }
 
     }
 
-    public void Leap(int distance) {
-        if (distance <= this.limitLeap) {
-            System.out.println("");
+    public void Leap(double distance) {
+        if (distance <= this.maxLeap) {
+            System.out.println(this.AnimalView + " прыгнул на высоту " + distance + " метр(ов)");
         } else {
-            System.out.println("");
+            System.out.println(this.AnimalView + " не может прыгнуть на высоту " + distance + " метр(ов)");
         }
+        System.out.println("");
 
     }
 
